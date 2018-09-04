@@ -1,0 +1,20 @@
+.chat {
+  display: block;
+  padding: 40px;
+
+  &__error,
+  &__spinner,
+  &__body {
+    display: block;
+  }
+
+  &__body-item {
+    margin-bottom: 20px;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}
+
+

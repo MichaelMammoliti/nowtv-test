@@ -1,0 +1,60 @@
+.chat-bubble {
+  position: relative;
+  padding: 10px;
+  background: #fafafa;
+
+  &__body {
+    display: flex;
+  }
+
+  &__message {
+    flex: 1 1 auto;
+  }
+
+  &__email {
+    position: absolute;
+    display: table;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    background: #000;
+    font-size: 14px;
+    color: #fff;
+    display: none;
+
+    &:before {
+      display: block;
+      content: '';
+      position: absolute;
+      display: table;
+      bottom: 0;
+      left: 50%;
+      transform: translate(50%, 50%);
+      background: #000;
+    }
+  }
+
+  &__avatar {
+    flex: 0 1 auto;
+    padding-right: 20px;
+
+    img {
+      border-radius: 50%;
+      overflow: hidden;
+      height: 40px;
+      width: 40px;
+    }
+  }
+
+  &:hover {
+    background-color: #ddd;
+  }
+
+  &:hover & {
+    &__email {
+      display: block;
+      padding: 10px;
+      border-radius: 10px;
+    }
+  }
+}
