@@ -3,7 +3,7 @@ module.exports = {
   moduleFileExtensions: ['js'],
   moduleDirectories: [
     'node_modules',
-    'client/app',
+    'app/client',
   ],
   transform: {
     '^.+\\.(js|jsx)$': '<rootDir>/node_modules/babel-jest',

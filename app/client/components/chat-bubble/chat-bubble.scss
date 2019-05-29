@@ -20,7 +20,8 @@
     background: #000;
     font-size: 14px;
     color: #fff;
-    display: none;
+    padding: 10px;
+    border-radius: 10px;
 
     &:before {
       display: block;
@@ -43,18 +44,6 @@
       overflow: hidden;
       height: 40px;
       width: 40px;
-    }
-  }
-
-  &:hover {
-    background-color: #ddd;
-  }
-
-  &:hover & {
-    &__email {
-      display: block;
-      padding: 10px;
-      border-radius: 10px;
     }
   }
 }

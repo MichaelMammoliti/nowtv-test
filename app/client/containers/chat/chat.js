@@ -2,10 +2,10 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import actions from './state/actions';
-import styles from './main.scss';
+import * as actions from './state/actions';
+import styles from './chat.scss';
 
-import ChatBubble from '../../components/chat-bubble/main.js';
+import { ChatBubble } from '../../components';
 
 class Chat extends React.Component {
   componentDidMount() {
@@ -17,19 +17,20 @@ class Chat extends React.Component {
 
     return (
       <div className={styles['chat']}>
-        {fetchDataRequestStatus === 'error' &&
+
+        {fetchDataRequestStatus === 'error' && (
           <div className={styles['chat__error']}>
             <span>cannot render messages.</span>
           </div>
-        }
+        )}
 
-        {fetchDataRequestStatus === 'pending' &&
+        {fetchDataRequestStatus === 'pending' && (
           <div className={styles['chat__spinner']}>
             <span>fetching data..</span>
           </div>
-        }
+        )}
 
-        {fetchDataRequestStatus === 'success' && messages.length &&
+        {fetchDataRequestStatus === 'success' && !!messages.length && (
           <div className={styles['chat__body']}>
             {messages.map((messageItem, index) => (
               <div className={styles['chat__body-item']} key={index}>
@@ -37,7 +38,8 @@ class Chat extends React.Component {
               </div>
             ))}
           </div>
-        }
+        )}
+
       </div>
     );
   }
@@ -48,7 +50,6 @@ Chat.displayName = 'Chat';
 Chat.defaultProps = {
   messages: [],
 };
-
 
 export {
   Chat,

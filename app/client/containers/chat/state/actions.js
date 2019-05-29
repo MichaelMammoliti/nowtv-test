@@ -2,7 +2,7 @@ import CONSTANTS from './constants';
 import { getMessages, getMembers } from '../../../data.js';
 import ChatUtilities from '../../../utilities/chat/main.js';
 
-const fetchDataSuccess = ({ messages }) => ({
+export const fetchDataSuccess = ({ messages } = {}) => ({
   type: CONSTANTS.FETCH_DATA_SUCCESS,
   payload: {
     fetchDataRequestStatus: 'success',
@@ -10,21 +10,21 @@ const fetchDataSuccess = ({ messages }) => ({
   },
 });
 
-const fetchDataPending = () => ({
+export const fetchDataPending = () => ({
   type: CONSTANTS.FETCH_DATA_PENDING,
   payload: {
     fetchDataRequestStatus: 'pending',
   },
 });
 
-const fetchDataFail = () => ({
+export const fetchDataFail = () => ({
   type: CONSTANTS.FETCH_DATA_FAIL,
   payload: {
     fetchDataRequestStatus: 'error',
   },
 });
 
-const fetchData = () => dispatch => {
+export const fetchData = () => dispatch => {
   dispatch(fetchDataPending());
 
   const success = ([ messages, users ]) => {
@@ -43,13 +43,8 @@ const fetchData = () => dispatch => {
     dispatch(fetchDataFail());
   };
 
-  Promise.all([getMessages(), getMembers()])
+  return Promise.all([getMessages(), getMembers()])
     .then(success)
     .catch(fail)
   ;
-};
-
-export default {
-  fetchData,
-  fetchDataSuccess,
 };

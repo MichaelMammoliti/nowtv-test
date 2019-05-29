@@ -1,6 +1,6 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
-import { Chat } from './main.js';
+import { shallow } from 'enzyme';
+import { Chat } from './index';
 
 const getProps = () => {
   return {

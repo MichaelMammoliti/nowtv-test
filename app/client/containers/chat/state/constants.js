@@ -1,8 +1,6 @@
-const constants = {
+export default {
   FETCH_DATA: 'CHAT/FETCH_DATA',
   FETCH_DATA_SUCCESS: 'CHAT/FETCH_DATA_SUCCESS',
   FETCH_DATA_PENDING: 'CHAT/FETCH_DATA_PENDING',
   FETCH_DATA_FAIL: 'CHAT/FETCH_DATA_FAIL',
 };
-
-export default constants;

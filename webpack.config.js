@@ -3,7 +3,7 @@ const webpack = require('webpack');
 
 module.exports = {
   entry: [
-    './client/app/index.js',
+    './app/client/index.js',
   ],
 
   output: {
@@ -16,7 +16,7 @@ module.exports = {
     rules: [
       {
         test: /\.js?$/,
-        include: path.join(__dirname, 'client'),
+        include: path.join(__dirname, 'app/client'),
         exclude: path.resolve(__dirname, 'node_modules'),
         use: [
           { loader: 'babel-loader' },
@@ -35,11 +35,6 @@ module.exports = {
           },
           {
             loader: 'sass-loader',
-            options: {
-              includePaths: [
-                'app/styles',
-              ],
-            },
           },
         ],
       },
@@ -50,7 +45,7 @@ module.exports = {
     extensions: ['.js', '.jsx'],
     mainFiles: ['index', 'main'],
     modules: [
-      'client/app',
+      'app/client',
       'node_modules',
     ],
   },
@@ -61,7 +56,6 @@ module.exports = {
       React: 'react',
       ReactDOM: 'react-dom',
       classnames: 'classnames/bind',
-      Components: 'components/index.js',
     }),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
